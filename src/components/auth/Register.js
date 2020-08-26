@@ -1,7 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import AuthContext from '../../context/auth/authContext';
 import { Link } from 'react-router-dom';
 
-const Register = () => {
+const Register = (props) => {
+  const authContext = useContext(AuthContext);
+  const { register, isAuthenticated, error, clearError } = authContext;
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      props.history.push('/dashboard');
+    }
+
+    if (error !== null) {
+      const alertMsg = error;
+      clearError();
+      alert(alertMsg);
+    }
+  }, [isAuthenticated, props.history, error, clearError]);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -14,7 +30,7 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Success');
+    register(formData);
   };
 
   const { name, email, password, password2 } = formData;
