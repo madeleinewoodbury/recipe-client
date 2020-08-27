@@ -12,8 +12,8 @@ import {
 
 const AuthState = (props) => {
   const initialState = {
-    user: null,
-    isAuthenticated: false,
+    user: { name: 'William' },
+    isAuthenticated: true,
     error: null,
   };
 
