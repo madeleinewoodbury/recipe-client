@@ -2,7 +2,7 @@ import React from 'react';
 
 const DashForm = () => {
   return (
-    <form className="search-form">
+    <form className="dash-form">
       <div className="form-group">
         <select name="category" value="0">
           <option value="0">All Kategorier</option>
@@ -16,10 +16,12 @@ const DashForm = () => {
           <option value="Other">Other</option>
         </select>
       </div>
-      <input type="text" placeholder="Søk..." name="search" />
-      <button className="search-btn" type="submit">
-        <i className="fa fa-search"></i>
-      </button>
+      <div className="form-group">
+        <input type="text" placeholder="Søk..." name="search" />
+        <button className="search-btn" type="submit">
+          <i className="fa fa-search"></i>
+        </button>
+      </div>
     </form>
   );
 };

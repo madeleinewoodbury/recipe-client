@@ -1,0 +1,75 @@
+.form .form-flex {
+  display: flex;
+  width: 100%;
+}
+
+.form .form-flex .form-group {
+  margin: 0.5rem 1rem 0.5rem 0;
+  width: 50%;
+}
+
+.form .form-text {
+  display: block;
+  margin-top: 0.3rem;
+  color: #888;
+}
+
+.form input[type='text'],
+.form input[type='email'],
+.form input[type='password'],
+.form input[type='date'],
+.form select,
+.form textarea {
+  display: block;
+  width: 100%;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+}
+
+.form textarea {
+  height: 200px;
+}
+
+.form input[type='submit'],
+button {
+  font: inherit;
+}
+
+.form-ingredients .btn-container {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 0.5rem;
+}
+
+.form-ingredients .btn {
+  display: block;
+  padding: 0.4rem 1rem;
+}
+
+.ingredients-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0.75rem 0;
+}
+
+.ingredients-list .ingredient-btn {
+  margin: 0.5rem;
+  background-color: var(--light-color);
+  padding: 0.4rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.ingredients-list .ingredient-btn .ingredient {
+  margin-right: 0.4rem;
+}
+
+.ingredients-list .ingredient-btn .fas {
+  font-size: 0.8rem;
+  color: rgb(138, 138, 138);
+}
+
+.ingredients-list .ingredient-btn:hover .fas {
+  color: var(--primary-color);
+}

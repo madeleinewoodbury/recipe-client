@@ -181,31 +181,25 @@ ul {
   opacity: 0.8;
 }
 
-/* Forms */
-.form .form-group {
-  margin: 1.2rem 0;
-}
+@media (max-width: 700px) {
+  .container {
+    margin-top: 8rem;
+  }
 
-.form .form-text {
-  display: block;
-  margin-top: 0.3rem;
-  color: #888;
-}
+  .hide-sm {
+    display: none;
+  }
 
-.form input[type='text'],
-.form input[type='email'],
-.form input[type='password'],
-.form input[type='date'],
-.form select,
-.form textarea {
-  display: block;
-  width: 100%;
-  padding: 0.4rem;
-  font-size: 1.2rem;
-  border: 1px solid #ccc;
-}
+  /* Text Styles */
+  .x-large {
+    font-size: 3rem;
+  }
 
-.form input[type='submit'],
-button {
-  font: inherit;
+  .large {
+    font-size: 2rem;
+  }
+
+  .lead {
+    font-size: 1rem;
+  }
 }
