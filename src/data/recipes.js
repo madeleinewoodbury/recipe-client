@@ -249,3 +249,30 @@ export const categories = [
   'Breads',
   'Other',
 ];
+
+export const getUserRecipesBySearch = (user, search) => {
+  const userRecipes = getUserRecipes(user);
+  let searchRecipes = [];
+  if (search.category === '' && search.text === '') {
+    return userRecipes;
+  } else if (search.category === '' && search.text !== '') {
+    searchRecipes = userRecipes.filter((recipe) =>
+      recipe.name.toLowerCase().includes(search.text.toLowerCase())
+    );
+    return searchRecipes;
+  } else {
+    if (search.text !== '') {
+      searchRecipes = userRecipes.filter(
+        (recipe) =>
+          recipe.category === search.category &&
+          recipe.name.toLowerCase().includes(search.text.toLowerCase())
+      );
+    } else {
+      searchRecipes = userRecipes.filter(
+        (recipe) => recipe.category === search.category
+      );
+    }
+
+    return searchRecipes;
+  }
+};
