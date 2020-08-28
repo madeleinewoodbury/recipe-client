@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from '../navbar/Navbar';
-import Login from '../auth/Login';
-import Register from '../auth/Register';
+import Login from '../forms/auth/Login';
+import Register from '../forms/auth/Register';
 import Dashboard from '../dashboard/Dashboard';
 import AddRecipe from '../forms/AddRecipe';
 

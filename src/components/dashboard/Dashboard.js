@@ -1,5 +1,6 @@
 import React, { useEffect, useContext, useState } from 'react';
 import AuthContext from '../../context/auth/authContext';
+import { getUserRecipes } from '../../data/recipes';
 import DashboardActions from './DashboardActions';
 import DashForm from './DashForm';
 import DashTable from './DashTable';
@@ -8,22 +9,7 @@ import './Dashboard.css';
 const Dashboard = (props) => {
   const authContext = useContext(AuthContext);
   const { isAuthenticated, user } = authContext;
-  const [recipes] = useState([
-    {
-      id: 1,
-      name: 'Pizza',
-      category: 'Dinner',
-      country: 'Italy',
-      date: '10/02/2019',
-    },
-    {
-      id: 2,
-      name: 'Chocolate Cake',
-      category: 'Desserts',
-      country: 'Not specified',
-      date: '10/11/2019',
-    },
-  ]);
+  const [recipes] = useState(getUserRecipes('William'));
 
   useEffect(() => {
     if (!isAuthenticated) {

@@ -3,6 +3,10 @@
   width: 100%;
 }
 
+.form .form-group {
+  margin: 1.2rem 0;
+}
+
 .form .form-flex .form-group {
   margin: 0.5rem 1rem 0.5rem 0;
   width: 50%;

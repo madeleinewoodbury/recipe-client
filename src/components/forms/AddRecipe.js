@@ -1,21 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { countries } from '../../data/countries';
+import { categories } from '../../data/recipes';
 import FormSelect from './FormSelect';
 import FormInput from './FormInput';
 import AddIngredient from './AddIngredient';
 import './Forms.css';
 
 const AddRecipe = () => {
-  const [categories] = useState([
-    'Breakfast',
-    'Lunch',
-    'Dinner',
-    'Desserts',
-    'Drinks',
-    'Sides',
-    'Breads',
-    'Other',
-  ]);
   const [formData, setFormData] = useState({
     name: '',
     servings: '',
@@ -90,7 +82,7 @@ const AddRecipe = () => {
             value={country}
             firstOption="Velg nasjonalitet"
             handleChange={handleChange}
-            options={['Amerikansk', 'Italiensk', 'Fransk', 'Norsk']}
+            options={countries}
           />
         </div>
         <AddIngredient

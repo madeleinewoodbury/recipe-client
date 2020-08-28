@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
-import AuthContext from '../../context/auth/authContext';
+import AuthContext from '../../../context/auth/authContext';
 import { Link } from 'react-router-dom';
+import '../Forms.css';
 
 const Register = (props) => {
   const authContext = useContext(AuthContext);
