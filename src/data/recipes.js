@@ -1,4 +1,4 @@
-export const recipies = [
+const recipies = [
   {
     id: 1,
     user: 'William',
@@ -231,6 +231,10 @@ export const recipies = [
   },
 ];
 
+export const recipesPerPage = () => 5;
+
+export const getAllRecipes = () => recipies;
+
 export const getUserRecipes = (name) => {
   return recipies.filter((recipe) => recipe.user === name);
 };
@@ -243,7 +247,7 @@ export const categories = [
   'Breakfast',
   'Lunch',
   'Dinner',
-  'Desserts',
+  'Dessert',
   'Drinks',
   'Sides',
   'Breads',
@@ -251,11 +255,19 @@ export const categories = [
 ];
 
 export const getUserRecipesBySearch = (user, search) => {
-  const userRecipes = getUserRecipes(user);
+  // const userRecipes = getUserRecipes(user);
+  const userRecipes = getAllRecipes();
+  console.log(search);
   let searchRecipes = [];
-  if (search.category === '' && search.text === '') {
+  if (
+    (search.category === '' || search.category === '0') &&
+    search.text === ''
+  ) {
     return userRecipes;
-  } else if (search.category === '' && search.text !== '') {
+  } else if (
+    (search.category === '' || search.category === '0') &&
+    search.text !== ''
+  ) {
     searchRecipes = userRecipes.filter((recipe) =>
       recipe.name.toLowerCase().includes(search.text.toLowerCase())
     );

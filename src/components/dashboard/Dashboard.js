@@ -1,15 +1,23 @@
 import React, { useEffect, useContext, useState } from 'react';
 import AuthContext from '../../context/auth/authContext';
-import { getUserRecipes, getUserRecipesBySearch } from '../../data/recipes';
+import {
+  getUserRecipes,
+  getUserRecipesBySearch,
+  getAllRecipes,
+  recipesPerPage,
+} from '../../data/recipes';
 import DashboardActions from './DashboardActions';
 import DashForm from './DashForm';
 import DashTable from './DashTable';
+import Pagination from './Pagination';
 import './Dashboard.css';
 
 const Dashboard = (props) => {
   const authContext = useContext(AuthContext);
   const { isAuthenticated, user } = authContext;
-  const [recipes] = useState(getUserRecipes('William'));
+  // const [recipes] = useState(getUserRecipes('William'));
+  const [recipes, setRecipes] = useState(getAllRecipes());
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     if (!isAuthenticated) {
@@ -22,7 +30,11 @@ const Dashboard = (props) => {
     // console.log(`Searching for ${searchText} in the category ${category}`);
     const searchRecipes = getUserRecipesBySearch('William', search);
     console.log(searchRecipes);
+    setRecipes(searchRecipes);
   };
+
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div className="container dashboard">
@@ -34,7 +46,12 @@ const Dashboard = (props) => {
         <h2 className="text-primary">Mine Oppskrifter</h2>
         <DashForm handleSearch={handleSearch} />
       </div>
-      <DashTable recipes={recipes} />
+      <DashTable recipes={recipes} recipesPerPage={recipesPerPage} />
+      <Pagination
+        numItems={recipes.length}
+        itemsPerPage={recipesPerPage}
+        paginate={paginate}
+      />
     </div>
   );
 };
